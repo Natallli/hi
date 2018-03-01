@@ -1,0 +1,27 @@
+<?php 
+
+$anonDice1 = mt_rand(1,6);
+$anonDice2 = mt_rand(1,6);
+
+$compDice1 = mt_rand(1,6);
+$compDice2 = mt_rand(1,6);
+
+echo "Ходит анона ... {$anonDice1} и {$anonDice2}\nХодит комп ... {$compDice1} и {$compDice2}\n";
+
+if (($anonDice1 == $anonDice2) && ($compDice1 == $compDice2)) {
+	echo "2 дабла - тебя ждет большая удача. Запости скриншот!";
+	exit();
+}
+
+$anonSum = ($anonDice1 + $anonDice2);
+$compSum = ($compDice1 + $compDice2);
+
+echo "Сумма: анон {$anonSum} | комп {$compSum}\n";
+
+if ($anonSum > $compSum) {
+	echo "Победил анон <3";
+	
+} elseif ($anonSum < $compSum) {
+	echo "Победил комп =(";
+	
+} else echo "Ничья";
