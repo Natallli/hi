@@ -1,0 +1,12 @@
+<?php
+
+error_reporting(-1);
+
+/* Оценки, которые поставили фотке анона в одноклассниках */
+$rates = array(3, 5, 3, 2, 1, 8, 4, 3, 4, 3, 2, 3);
+
+$ratesSum = array_sum($rates);
+$ratesCount = count($rates); 
+$averageRate = round($ratesSum / $ratesCount); /* Средняя оценка */
+
+echo "Анону поставили {$ratesCount} оценок, их сумма = {$ratesSum}\nСредний балл — {$averageRate}\n";
