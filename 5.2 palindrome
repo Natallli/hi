@@ -1,0 +1,25 @@
+<?php
+
+error_reporting(-1);
+mb_internal_encoding("UTF-8");
+
+$text = "А роза упала на лапу Азора";
+$result = 'палиндром';
+
+$textmini = mb_strtolower($text);
+$string = str_replace(" ","",$textmini);
+
+$lenght = mb_strlen($text);
+$halfLenght = floor($lenght/ 2);
+
+for ($i = 1; $i <= $halfLenght; $i++) {
+
+if (mb_substr($string, 0, 1) != mb_substr($string, -1))
+echo "Не подходит";
+break;
+}
+
+echo "Результат: "
+echo $lenght;
+echo $halfLenght;
+echo $string;
