@@ -1,0 +1,17 @@
+<?php
+
+$answers = array (
+	1 => 'да',
+	2 => 'нет',
+	3 => 'не знаю',
+	4 => 'никогда',
+	5 => 'это зависит от тебя',
+	6 => 'спроси анона'
+);
+
+$question = 'Выучу ли я PHP без смс и регистрации?';
+$answers = array_flip($answers);
+$answers = array_rand($answers);
+
+echo "Вопрос: {$question}\n";
+echo "Ответ: {$answers}";
