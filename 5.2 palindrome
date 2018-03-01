@@ -12,14 +12,25 @@ $string = str_replace(" ","",$textmini);
 $lenght = mb_strlen($text);
 $halfLenght = floor($lenght/ 2);
 
+$w1 = 0;
+$w2 = -1;
+
 for ($i = 1; $i <= $halfLenght; $i++) {
-
-if (mb_substr($string, 0, 1) != mb_substr($string, -1))
-echo "Не подходит";
-break;
+    $x = mb_substr($string, $w1, 1);
+    $y = mb_substr($string, $w2, 1);
+    
+    if ($x == $y) {
+        echo "Круг $i: $x - $y\n";
+    $w1++;
+    $w2--;
+    }
+    else {
+        echo "Круг $i: $x - $y\n";
+        echo "Это не палиндром.";
+    break;
+    }
+    if ($i == $halfLenght) {
+        echo "Это палиндром.";
+    }
 }
-
-echo "Результат: "
-echo $lenght;
-echo $halfLenght;
-echo $string;
+    
