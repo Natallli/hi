@@ -2,35 +2,30 @@
 
 error_reporting(-1);
 
-$onePayment = 7777;
-
 function printSum($percent, $servicePayment) {
-
 $paymentTotal = 0;
 $creditSum = 39999;
 $payout = 5000;
 
 	for ($month = 1; $month <= 36; $month ++) {
 		$creditSum = round($creditSum + ($creditSum /100 * $percent ) + $servicePayment);
-
+		echo "{$month} месяц спустя: долг = {$creditSum} руб, выплачено всего {$paymentTotal} руб. \n";
 		if ($creditSum < 5000) {
 			$paymentTotal+=$creditSum;
 			$creditBalance-=$creditSum;
+			echo "С меня хватит! {$month} месяц спустя: долг = {$creditSum} руб, выплачено всего {$paymentTotal} руб.\n";
 		break;
-	}
 		else {
 			$paymentTotal = $paymentTotal + $payout;
 			$creditSum = $creditSum - $payout;
 		}
 	}
-		
 	return $paymentTotal;
 }
 
-
 $homoCreditTotal = printSum(4, 500);
 $softBankTotal = printSum(3, 1000);
-$strawberryBankTotal = printSum(2, 0) + $onePayment;
+/*$strawberryBankTotal = printSum(4, 500);*/
 
 echo "homoCreditTotal: {$homoCreditTotal} руб.\n";
 echo "softBankTotal: {$softBankTotal} руб.\n";
